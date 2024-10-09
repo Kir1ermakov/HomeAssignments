@@ -1,6 +1,6 @@
 #ifndef header_h
 #define header_h
 
-void reverseArray();
+void reverseArray(char* arr, int size);
 
 #endif

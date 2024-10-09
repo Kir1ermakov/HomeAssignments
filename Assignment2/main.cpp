@@ -6,6 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#include "header.h"
 
 int main()
 {
@@ -13,22 +14,14 @@ int main()
     inFile.open("in_example.txt", std::ios::binary);
 
     std::filesystem::path filePath = "in_example.txt";
-    std::int size;
-    size = std::filesystem::file_size(filePath);
+    int fileSize;
+    fileSize = std::filesystem::file_size(filePath);
 
     char* buffer = new char[fileSize];
 
     inFile.read(buffer, fileSize);
 
-    void reverseArray(char* arr, int size)
-    {
-        for(int i = 0; i < size / 2; ++i)
-        {
-            int temp = arr[i];
-            arr[i] = arr[size - 1 - i];
-            arr[size - 1 - i] = temp;
-        }
-    }
+    reverseArray(buffer, fileSize);
 
     std::ofstream outFile;
     outFile.open("out_example.txt", std::ios::binary);
