@@ -1,3 +1,8 @@
+// Кирилл Ермаков
+// Б82
+// st130061@student.spbu.ru
+// Assignment6
+
 #include "class3.h"
 
 bool Class3::bar(int n, std::vector<float>& v)

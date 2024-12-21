@@ -1,3 +1,8 @@
+// Кирилл Ермаков
+// Б82
+// st130061@student.spbu.ru
+// Assignment6
+
 #include "class1.h"
 
 bool Class1::bar(int n, std::vector<float>& v)

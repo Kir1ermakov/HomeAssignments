@@ -1,3 +1,8 @@
+// Кирилл Ермаков
+// Б82
+// st130061@student.spbu.ru
+// Assignment6
+
 #include "wrapper.h"
 
 template <typename T>

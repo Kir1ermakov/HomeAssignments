@@ -1,5 +1,10 @@
+#Кирилл Ермаков
+#Б82
+#st130061@student.spbu.ru
+#Assignment6
+
 CXX = g++
-CXXFLAGS = -Wall -Wpedantic -Werror -std=c++17 -I/usr/include/gtest -pthread
+CXXFLAGS = -Wall -Wpedantic -Werror -fsanitize=address -std=c++17 -I/usr/include/gtest -pthread
 
 SRC = src/class1.cpp src/class2.cpp src/class3.cpp src/wrapper.cpp 
 HEADERS = $(SRC:.cpp=.h)
