@@ -6,9 +6,9 @@
 #include <iostream>
 #include "imageB.h"
 
-int main() {
+int main()
+{
     std::string inputFilename = "images/image.bin"; // имя файла с сырыми данными
-    std::string outputFilename = "images/rotated_image.bin"; // имя для сохранения
 
     int width, height;
     std::cout << "Введите ширину изображения: ";
@@ -16,27 +16,28 @@ int main() {
     std::cout << "Введите высоту изображения: ";
     std::cin >> height;
 
-    // Шаг 1: Загрузка изображения
     Image img = loadBinGrayImage(inputFilename, width, height);
+
+    printBinImage(img); //реализовано в ImageB.cpp. //Позволяет вывести небольшие bin файлы в конcоль.
+
+    rotateClockwise(img);
 
     printBinImage(img);
 
-    // Шаг 2: Поворот изображения
-    Image rotatedImg = rotateClockwise(img);
+    saveBinImage("images/rotateClockwise.bin", img);
 
-    printBinImage(rotatedImg);
+    rotateCounterClockwise(img);
 
-    Image unrotatedImg = rotateCounterClockwise(rotatedImg);
+    printBinImage(img);
 
-    printBinImage(unrotatedImg);
+    saveBinImage("images/rotateCounterClockwise.bin", img);
 
-    // Шаг 3: Применение фильтра Гаусса
-    Image filteredImg = applyGaussianFilter(unrotatedImg);
+    applyGaussianFilter(img);
 
-    printBinImage(filteredImg);
+    printBinImage(img);
 
-    // Шаг 4: Сохранение результата
-    saveBinImage(outputFilename, filteredImg);
+    saveBinImage("images/filtered.bin", img);
+
 
     std::cout << "Обработка завершена!" << std::endl;
     return 0;

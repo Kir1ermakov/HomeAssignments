@@ -15,10 +15,10 @@ struct Image {
 };
 
 Image loadBinGrayImage(const std::string& filename, int width, int height);
-Image rotateClockwise(const Image& img);
-Image rotateCounterClockwise(const Image& img);
-Image applyGaussianFilter(const Image& img);
+void rotateClockwise(Image& img);
+void rotateCounterClockwise(Image& img);
+void applyGaussianFilter(Image& img);
 void saveBinImage(const std::string& filename, const Image& img);
-void printBinImage(const Image& img);
+void printBinImage(Image& img);
 
 #endif // IMAGE_H
