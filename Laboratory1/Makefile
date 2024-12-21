@@ -4,14 +4,13 @@ CXXFLAGS = -std=c++17 -Wall -Wextra -fsanitize=address -Wpedantic -Werror
 # Папки
 SRC_DIR = src
 OBJ_DIR = src
-BIN_DIR = bin
 
 SRCS = $(wildcard $(SRC_DIR)/*.cpp)
 HEADERS = $(filter-out main.h, $(SRC:.cpp=.h))
 OBJS = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRCS))
-TARGET = $(BIN_DIR)/run
+TARGET = run
 
-$(TARGET): $(OBJS) | $(BIN_DIR)
+$(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(TARGET)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
