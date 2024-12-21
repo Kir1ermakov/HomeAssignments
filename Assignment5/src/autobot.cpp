@@ -14,11 +14,11 @@ void Autobot::transform() const
 {
     std::cout << "Autobot: transform()\n";
 }
-void Autobot::openFire() const 
+void Autobot::openFire() const
 {
     std::cout << "Autobot: openFire()\n";
 }
-void Autobot::ultra() const 
+void Autobot::ultra() const
 {
     std::cout << "Autobot: ultra()\n";
 }

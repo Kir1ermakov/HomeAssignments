@@ -9,7 +9,8 @@
 #include "decepticon.h"
 #include "transformer.h"
 
-int main() {
+int main()
+{
 
     Gun g;
     Heart h;
@@ -37,13 +38,15 @@ int main() {
     t2->ultra();
 
     std::vector<std::unique_ptr<Transformer>> transformers;
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 3; ++i)
+    {
         transformers.push_back(std::make_unique<Autobot>(&g, h));
         transformers.push_back(std::make_unique<Decepticon>(&g, h));
         transformers.push_back(std::make_unique<Transformer>(&g, h));
     }
 
-    for (const auto& t : transformers) {
+    for (const auto& t : transformers)
+    {
         t->transform();
         t->openFire();
         t->ultra();

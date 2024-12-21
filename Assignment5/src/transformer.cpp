@@ -14,11 +14,11 @@ void Transformer::transform() const
 {
     std::cout << "Transformer: transform()\n";
 }
-void Transformer::openFire() const 
+void Transformer::openFire() const
 {
     std::cout << "Transformer: openFire()\n";
 }
-void Transformer::ultra() const 
+void Transformer::ultra() const
 {
     std::cout << "Transformer: ultra()\n";
 }

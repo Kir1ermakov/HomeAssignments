@@ -1,7 +1,7 @@
 // Кирилл Ермаков
 // Б82
 // st130061@student.spbu.ru
-// Assignment4
+// Assignment5
 
 #ifndef AUTOBOT_H
 #define AUTOBOT_H

@@ -5,7 +5,7 @@ SRC_DIR = src
 OBJ_DIR = src
 
 SRCS = $(wildcard $(SRC_DIR)/*.cpp)
-HEADERS = $(filter-out main.h, $(SRCS:.cpp=.h))
+HEADERS = $(filter-out src/main.h, $(SRCS:.cpp=.h))
 OBJS = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRCS))
 TARGET = run
 

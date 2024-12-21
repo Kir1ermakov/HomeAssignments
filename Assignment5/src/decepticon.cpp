@@ -14,11 +14,11 @@ void Decepticon::transform() const
 {
     std::cout << "Decepticon: transform()\n";
 }
-void Decepticon::openFire() const 
+void Decepticon::openFire() const
 {
     std::cout << "Decepticon: openFire()\n";
 }
-void Decepticon::ultra() const 
+void Decepticon::ultra() const
 {
     std::cout << "Decepticon: ultra()\n";
 }
