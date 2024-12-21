@@ -4,7 +4,8 @@
 #include <vector>
 
 template <typename T>
-class Wrapper {
+class Wrapper
+{
 private:
     T instance;
     int number;
@@ -16,7 +17,8 @@ public:
 };
 
 template <>
-class Wrapper<int> {
+class Wrapper<int>
+{
 private:
     int instance;
     int number;
@@ -28,7 +30,8 @@ public:
 };
 
 template <>
-class Wrapper<double> {
+class Wrapper<double>
+{
 private:
     double instance;
     int number;

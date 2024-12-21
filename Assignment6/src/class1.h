@@ -3,7 +3,8 @@
 
 #include <vector>
 
-class Class1 {
+class Class1
+{
 public:
     bool bar(int n, std::vector<float>& v);
     int c_1_1();

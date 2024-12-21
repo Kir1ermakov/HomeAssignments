@@ -1,13 +1,15 @@
-#include "class2.h"
+#include "../src/class2.h"
 #include <gtest/gtest.h>
 
-TEST(Class2Test, NonEmptyVector) {
+TEST(Class2Test, NonEmptyVector)
+{
     Class2 c2;
     std::vector<float> v = {2.2f};
     ASSERT_TRUE(c2.bar(0, v));
 }
 
-TEST(Class2Test, EmptyVector) {
+TEST(Class2Test, EmptyVector)
+{
     Class2 c2;
     std::vector<float> v;
     ASSERT_FALSE(c2.bar(0, v));
