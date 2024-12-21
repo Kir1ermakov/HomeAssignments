@@ -1,3 +1,8 @@
+// Кирилл Ермаков
+// Б82
+// st130061@student.spbu.ru
+// Assignment4
+
 #include <iostream>
 #include "src/transformer.h"
 #include "src/autobot.h"
