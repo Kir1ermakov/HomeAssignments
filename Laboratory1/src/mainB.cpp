@@ -1,9 +1,14 @@
+// Кирилл Ермаков
+// Б82
+// st130061@student.spbu.ru
+// Laboratory1
+
 #include <iostream>
 #include "imageB.h"
 
 int main() {
-    std::string inputFilename = "../images/image.raw"; // имя файла с сырыми данными
-    std::string outputFilename = "rotated_image.raw"; // имя для сохранения
+    std::string inputFilename = "images/image.bin"; // имя файла с сырыми данными
+    std::string outputFilename = "images/rotated_image.bin"; // имя для сохранения
 
     int width, height;
     std::cout << "Введите ширину изображения: ";
@@ -12,16 +17,26 @@ int main() {
     std::cin >> height;
 
     // Шаг 1: Загрузка изображения
-    Image img = loadRawGrayImage(inputFilename, width, height);
+    Image img = loadBinGrayImage(inputFilename, width, height);
+
+    printBinImage(img);
 
     // Шаг 2: Поворот изображения
     Image rotatedImg = rotateClockwise(img);
 
+    printBinImage(rotatedImg);
+
+    Image unrotatedImg = rotateCounterClockwise(rotatedImg);
+
+    printBinImage(unrotatedImg);
+
     // Шаг 3: Применение фильтра Гаусса
-    Image filteredImg = applyGaussianFilter(rotatedImg);
+    Image filteredImg = applyGaussianFilter(unrotatedImg);
+
+    printBinImage(filteredImg);
 
     // Шаг 4: Сохранение результата
-    saveRawImage(outputFilename, filteredImg);
+    saveBinImage(outputFilename, filteredImg);
 
     std::cout << "Обработка завершена!" << std::endl;
     return 0;
