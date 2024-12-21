@@ -10,8 +10,6 @@ Transformer::Transformer(Gun* gun, const Heart& heart): _health(100), _energy(50
 
 Transformer::Transformer(Gun* gun, const Heart& heart, uint health, uint energy, uint damage, uint luck): _health(health), _energy(energy), _damage(damage), _luck(luck), _gun(gun), _heart(heart) {}
 
-Transformer::~Transformer() {}
-
 void Transformer::transform() const
 {
     std::cout << "Transformer: transform()\n";
