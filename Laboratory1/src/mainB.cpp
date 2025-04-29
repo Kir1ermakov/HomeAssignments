@@ -8,13 +8,13 @@
 
 int main()
 {
-    std::string inputFilename = "images/image.bin"; // имя файла с сырыми данными
+    std::string inputFilename = "matrix.bin"; // имя файла с сырыми данными
 
     int width, height;
-    std::cout << "Введите ширину изображения: ";
-    std::cin >> width;
     std::cout << "Введите высоту изображения: ";
     std::cin >> height;
+    std::cout << "Введите ширину изображения: ";
+    std::cin >> width;
 
     Image img = loadBinGrayImage(inputFilename, width, height);
 

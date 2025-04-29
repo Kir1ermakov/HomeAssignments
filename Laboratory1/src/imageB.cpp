@@ -47,27 +47,37 @@ Image loadBinGrayImage(const std::string& filename, int width, int height)
 // Вращение изображения по часовой стрелке
 void rotateClockwise(Image& img)
 {
+    Image temp;
+    temp.width = img.height;
+    temp.height = img.width;
+    temp.pixels.resize(temp.height, std::vector<int>(temp.width));
 
     for (int y = 0; y < img.height; ++y)
     {
         for (int x = 0; x < img.width; ++x)
         {
-            img.pixels[x][img.height - y - 1] = img.pixels[y][x];
+            temp.pixels[x][img.height - y - 1] = img.pixels[y][x];
         }
     }
+    img = temp;
 }
 
 // Вращение изображения против часовой стрелки
 void rotateCounterClockwise(Image& img)
 {
+    Image temp;
+    temp.width = img.height;
+    temp.height = img.width;
+    temp.pixels.resize(temp.height, std::vector<int>(temp.width));
 
     for (int y = 0; y < img.height; ++y)
     {
         for (int x = 0; x < img.width; ++x)
         {
-            img.pixels[img.width - x - 1][y] = img.pixels[y][x];
+            temp.pixels[img.width - x - 1][y] = img.pixels[y][x];
         }
     }
+    img = temp;
 }
 
 std::vector<std::vector<int>> gaussianKernel =
@@ -81,10 +91,12 @@ void applyGaussianFilter(Image& img)
 {
     int kernelSize = 3;
     int offset = kernelSize / 2;
+    
+    Image temp = img; // Создаем временную копию для хранения результатов
 
-    for (int y = offset; y < img.height - offset; ++y)
+    for (int y = 0; y < img.height; ++y)
     {
-        for (int x = offset; x < img.width - offset; ++x)
+        for (int x = 0; x < img.width; ++x)
         {
             double sum = 0;
             double weightSum = 0;
@@ -93,17 +105,25 @@ void applyGaussianFilter(Image& img)
             {
                 for (int kx = -offset; kx <= offset; ++kx)
                 {
-                    int pixel = img.pixels[y + ky][x + kx];
-                    int weight = gaussianKernel[ky + offset][kx + offset];
-                    sum += pixel * weight;
-                    weightSum += weight;
+                    int ny = y + ky;
+                    int nx = x + kx;
+                    
+                    // Проверяем границы изображения
+                    if (ny >= 0 && ny < img.height && nx >= 0 && nx < img.width)
+                    {
+                        int pixel = img.pixels[ny][nx];
+                        int weight = gaussianKernel[ky + offset][kx + offset];
+                        sum += pixel * weight;
+                        weightSum += weight;
+                    }
                 }
             }
 
-            img.pixels[y][x] = static_cast<int>(sum / weightSum + 0.5);  // Округление к ближайшему
+            temp.pixels[y][x] = static_cast<int>(sum / weightSum + 0.5);
         }
     }
-
+    
+    img = temp; // Копируем результат обратно в исходное изображение
 }
 
 void saveBinImage(const std::string& filename, const Image& img)
